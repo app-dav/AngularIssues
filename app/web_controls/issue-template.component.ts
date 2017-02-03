@@ -1,7 +1,8 @@
 /**
  * Created by appel on 2/2/2017.
  */
-import {Component} from "@angular/core";
+import {Component, Input} from "@angular/core";
+import {Issue} from "../issue";
 
 @Component({
   moduleId: module.id,
@@ -10,5 +11,6 @@ import {Component} from "@angular/core";
 })
 
 export class IssueTemplateComponent{
-
+  @Input()
+  issue: Issue;
 }
