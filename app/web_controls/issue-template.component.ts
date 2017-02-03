@@ -5,7 +5,7 @@ import {Component} from "@angular/core";
 
 @Component({
   moduleId: module.id,
-  selector: "<issue></issue>",
+  selector: "issue",
   templateUrl: "issue-list.template.html"
 })
 
