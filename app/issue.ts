@@ -4,8 +4,8 @@
 
 
 export class Issue{
-  title: string;
   body: string;
   user: string;
   assignee: string;
+  title: string;
 }
