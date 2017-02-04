@@ -16,10 +16,12 @@ export class IssueListComponent implements OnInit{
   }
 
   issueTitle: string;
-  issues: Array<Issue>;
+  issues: Array<Issue> = [];
 
   ngOnInit(){
-    this.issues = this.issueService.Issues;
+    this.issueService.Issues.subscribe(newIssue => this.issues = newIssue);
+    //this.issues = this.issueService.Issues ;
+
     this.issueTitle = "TODO";
   }
 
