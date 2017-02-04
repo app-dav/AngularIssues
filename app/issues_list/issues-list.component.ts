@@ -20,7 +20,6 @@ export class IssueListComponent implements OnInit{
 
   ngOnInit(){
     this.issueService.Issues.subscribe(newIssue => this.issues = newIssue);
-    //this.issues = this.issueService.Issues ;
 
     this.issueTitle = "TODO";
   }
