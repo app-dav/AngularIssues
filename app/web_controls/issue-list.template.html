@@ -1,6 +1,16 @@
-<article>
-  <h3>{{issue.title}}</h3>
-  assignee: {{issue.assignee}}
-  author: {{issue.user}}
-  <p>{{issue.body}}</p>
+<article class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{issue.title}}</h3>
+  </div>
+  <div class="panel-body">
+    <div>
+      <label>Author: </label>
+      <span>{{issue.user}}</span>
+    </div>
+    <div>
+      <label>Assignee: </label>
+      <span>{{issue.assignee}}</span>
+    </div>
+  <p class="text-primary">{{issue.body}}</p>
+  </div>
 </article>

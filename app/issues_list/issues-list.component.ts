@@ -21,7 +21,7 @@ export class IssueListComponent implements OnInit{
   ngOnInit(){
     this.issueService.Issues.subscribe(newIssue => this.issues = newIssue);
 
-    this.issueTitle = "TODO";
+    this.issueTitle = "Angular Issues (7-Day Feed)";
   }
 
 

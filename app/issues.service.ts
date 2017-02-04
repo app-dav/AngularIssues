@@ -19,7 +19,7 @@ export class IssuesService {
 
   private mapData(resp: Response) {
     let body = resp.json();
-    return body.map((i: string) => new Issue(i["body"], i["user"]["login"], i["assignee"], i["title"]));
+    return body.map((i: string) => new Issue(i["body"], i["title"], i["user"]["login"], i["assignee"] ? i["assignee"] : "Not Assigned"));
   }
 
 }

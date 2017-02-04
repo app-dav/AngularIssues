@@ -5,7 +5,7 @@
 
 export class Issue {
   constructor(readonly body: string,
+              readonly title: string,
               readonly user: string,
-              readonly assignee: string,
-              readonly title: string){}
+              readonly assignee: string ){}
 }
