@@ -3,9 +3,9 @@
  */
 
 
-export class Issue{
-  body: string;
-  user: string;
-  assignee: string;
-  title: string;
+export class Issue {
+  constructor(readonly body: string,
+              readonly user: string,
+              readonly assignee: string,
+              readonly title: string){}
 }
