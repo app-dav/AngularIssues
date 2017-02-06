@@ -11,24 +11,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /**
  * Created by appel on 2/2/2017.
  */
-var core_1 = require("@angular/core");
-var issue_1 = require("../issue");
-var IssueTemplateComponent = (function () {
-    function IssueTemplateComponent() {
-    }
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', issue_1.Issue)
-    ], IssueTemplateComponent.prototype, "issue", void 0);
-    IssueTemplateComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: "issue",
-            templateUrl: "issue-list.template.html"
-        }), 
-        __metadata('design:paramtypes', [])
-    ], IssueTemplateComponent);
-    return IssueTemplateComponent;
-}());
+const core_1 = require("@angular/core");
+const issue_1 = require("../issue");
+let IssueTemplateComponent = class IssueTemplateComponent {
+};
+__decorate([
+    core_1.Input(), 
+    __metadata('design:type', issue_1.Issue)
+], IssueTemplateComponent.prototype, "issue", void 0);
+IssueTemplateComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: "issue",
+        templateUrl: "issue-list.template.html"
+    }), 
+    __metadata('design:paramtypes', [])
+], IssueTemplateComponent);
 exports.IssueTemplateComponent = IssueTemplateComponent;
 //# sourceMappingURL=issue-template.component.js.map

@@ -8,25 +8,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var http_1 = require("@angular/http");
-var issues_list_component_1 = require('./issues_list/issues-list.component');
-var issue_template_component_1 = require("./web_controls/issue-template.component");
-var issues_service_1 = require("./issues.service");
-var AppModule = (function () {
-    function AppModule() {
-    }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, http_1.HttpModule, http_1.JsonpModule],
-            declarations: [issues_list_component_1.IssueListComponent, issue_template_component_1.IssueTemplateComponent],
-            bootstrap: [issues_list_component_1.IssueListComponent],
-            providers: [issues_service_1.IssuesService]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
-}());
+const core_1 = require('@angular/core');
+const platform_browser_1 = require('@angular/platform-browser');
+const http_1 = require("@angular/http");
+const issues_list_component_1 = require('./issues_list/issues-list.component');
+const issue_template_component_1 = require("./web_controls/issue-template.component");
+const issues_service_1 = require("./issues.service");
+let AppModule = class AppModule {
+};
+AppModule = __decorate([
+    core_1.NgModule({
+        imports: [platform_browser_1.BrowserModule, http_1.HttpModule, http_1.JsonpModule],
+        declarations: [issues_list_component_1.IssueListComponent, issue_template_component_1.IssueTemplateComponent],
+        bootstrap: [issues_list_component_1.IssueListComponent],
+        providers: [issues_service_1.IssuesService]
+    }), 
+    __metadata('design:paramtypes', [])
+], AppModule);
 exports.AppModule = AppModule;
 //# sourceMappingURL=issues.module.js.map

@@ -8,27 +8,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var issues_service_1 = require("../issues.service");
-var IssueListComponent = (function () {
-    function IssueListComponent(issueService) {
+const core_1 = require('@angular/core');
+const issues_service_1 = require("../issues.service");
+require("rxjs/add/observable/of");
+let IssueListComponent = class IssueListComponent {
+    constructor(issueService) {
         this.issueService = issueService;
+        //issues: Observable<Issue[]> = Observable.of<Issue[]>([]);
         this.issues = [];
     }
-    IssueListComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.issueService.Issues.subscribe(function (newIssue) { return _this.issues = newIssue; });
+    // private page = new Subject<number>();
+    ngOnInit() {
         this.issueTitle = "Angular Issues (7-Day Feed)";
-    };
-    IssueListComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'issue-list',
-            templateUrl: "./issues-list.html",
-        }), 
-        __metadata('design:paramtypes', [issues_service_1.IssuesService])
-    ], IssueListComponent);
-    return IssueListComponent;
-}());
+        var done = false;
+        for (let x = 0; x < 10; x++) {
+            this.issueService.getIssues(x).subscribe((issues) => {
+                if (issues.length > 0)
+                    issues.map((issue) => this.issues.push(issue));
+                else
+                    done = true;
+            });
+            if (done)
+                break;
+        }
+    }
+};
+IssueListComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'issue-list',
+        templateUrl: "./issues-list.html",
+    }), 
+    __metadata('design:paramtypes', [issues_service_1.IssuesService])
+], IssueListComponent);
 exports.IssueListComponent = IssueListComponent;
 //# sourceMappingURL=issues-list.component.js.map

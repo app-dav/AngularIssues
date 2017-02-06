@@ -3,4 +3,10 @@ article {
   padding: 10px;
 }
 
-
+.sticky-top-nav{
+  position: fixed;
+  bottom: 20px;
+  right: 60px;
+  z-index: 1000;
+  opacity: .5;
+}
