@@ -11,38 +11,32 @@ import "rxjs/add/observable/of";
 })
 
 
-export class IssueListComponent implements OnInit{
+export class IssueListComponent implements OnInit {
 
-  constructor(private issueService: IssuesService ) {}
+  constructor(private issueService: IssuesService) {
+  }
 
   issueTitle: string;
   //issues: Observable<Issue[]> = Observable.of<Issue[]>([]);
   issues: Array<Issue> = [];
- // private page = new Subject<number>();
+  // private page = new Subject<number>();
 
-    ngOnInit() {
-      this.issueTitle = "Angular Issues (7-Day Feed)";
+  private done: boolean = false;
+  private subsribeFunc = function(issues: Issue[]){
+    if (issues.length > 0)
+      issues.map((issue: Issue) => this.issues.push(issue))
+    else
+      this.done = true;
+  } .bind(this);
 
-      var done: boolean = false;
-      for(let x=0;x<10;x++)
-      {
-        this.issueService.getIssues(x).subscribe(
-          (issues: Issue[]) => {
-            if (issues.length > 0)
-              issues.map((issue: Issue) => this.issues.push(issue))
-              else
-                done = true;
-            }
-          )
-        if(done) break;
-      }
+  ngOnInit() {
+    this.issueTitle = "Angular Issues (7-Day Feed)";
 
+    for (let x = 0; x < 8; x++) {
+      this.issueService.getIssues(x).subscribe(
+      this.subsribeFunc
+    )
+      if (this.done) break;
     }
-
-/*
-
-
- */
-
-
+  }
 }

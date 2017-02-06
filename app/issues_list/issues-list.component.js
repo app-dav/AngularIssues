@@ -16,19 +16,20 @@ let IssueListComponent = class IssueListComponent {
         this.issueService = issueService;
         //issues: Observable<Issue[]> = Observable.of<Issue[]>([]);
         this.issues = [];
+        // private page = new Subject<number>();
+        this.done = false;
+        this.subsribeFunc = function (issues) {
+            if (issues.length > 0)
+                issues.map((issue) => this.issues.push(issue));
+            else
+                this.done = true;
+        }.bind(this);
     }
-    // private page = new Subject<number>();
     ngOnInit() {
         this.issueTitle = "Angular Issues (7-Day Feed)";
-        var done = false;
-        for (let x = 0; x < 10; x++) {
-            this.issueService.getIssues(x).subscribe((issues) => {
-                if (issues.length > 0)
-                    issues.map((issue) => this.issues.push(issue));
-                else
-                    done = true;
-            });
-            if (done)
+        for (let x = 0; x < 8; x++) {
+            this.issueService.getIssues(x).subscribe(this.subsribeFunc);
+            if (this.done)
                 break;
         }
     }
