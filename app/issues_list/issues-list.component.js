@@ -14,9 +14,7 @@ require("rxjs/add/observable/of");
 let IssueListComponent = class IssueListComponent {
     constructor(issueService) {
         this.issueService = issueService;
-        //issues: Observable<Issue[]> = Observable.of<Issue[]>([]);
         this.issues = [];
-        // private page = new Subject<number>();
         this.done = false;
         this.subsribeFunc = function (issues) {
             if (issues.length > 0)

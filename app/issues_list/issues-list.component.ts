@@ -17,9 +17,7 @@ export class IssueListComponent implements OnInit {
   }
 
   issueTitle: string;
-  //issues: Observable<Issue[]> = Observable.of<Issue[]>([]);
   issues: Array<Issue> = [];
-  // private page = new Subject<number>();
 
   private done: boolean = false;
   private subsribeFunc = function(issues: Issue[]){
